@@ -17,7 +17,7 @@ const handleClick = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform payment here
+    window.location.href = "/"
     console.log(paymentMethod, cardNumber, nameOnCard, expiryDate, cvv);
   };
 

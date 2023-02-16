@@ -65,13 +65,18 @@ const login =  async (req, res) => {
   try {
     const conn = await connection;
     const user = await conn.query("SELECT * FROM users WHERE username = ?", [name]);
-    // console.log(user[0]);
+    console.log(user[0][0].password);
     if(user[0].length > 0) {
-      await bcrypt.compare(password, user[0][0].password);
-      res.status(200).send("OK")
+      let match = await bcrypt.compare(password, user[0][0].password);
+      if(match === true) {
+        res.status(200).send("OK");
+      }
+    else if (match === false) {
+        res.status(401).send("รหัสไม่ถูก");
+      }
     } else {
       res.status(401).send("ไม่พบชื่อผู้ใช้");
-    }
+    }    
   } catch (err) {
     console.log(err);
   }

@@ -45,11 +45,11 @@ const Login = () => {
             data: data,
         };
         axios(config)
-            .then(function (response) {
+            .then(function (response) { 
                 Swal.fire({
                     icon: "success",
-                    title: "Login Successful!",
-                    text: "Redirecting to homepage...",
+                    title: "login success",
+                    text: "welcome to our website",
                 });
                 setTimeout(() => {
                     window.location.href = "/";
