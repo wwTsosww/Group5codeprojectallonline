@@ -20,7 +20,7 @@ const Shop = ({ addToCart, shopItems }) => {
                 </ul> */}
               </div>
               <div className='heading-right row '>
-                <a href="/test">ดูทั้งหมด</a>
+                <a href="/Allpro">ดูทั้งหมด</a>
                 <i className='fa-solid fa-caret-right'></i>
               </div>
             </div>

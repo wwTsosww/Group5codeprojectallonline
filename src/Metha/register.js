@@ -101,7 +101,7 @@ function Register(productType) {
                 text: "สมัครสมาชิกเรียบร้อย"
               })
             ),
-            window.location.href = "/login!";
+            window.location.href = "/login";
           })
           .catch(function (error) {
             console.log(error);

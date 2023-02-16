@@ -10,8 +10,9 @@ import Sdata from "./Chachaphong/shops/Sdata"
 import Footer from "./Chachaphong/footer/Footer"
 import Register from "./Metha/register"
 import MainTypeproduct from "./Metha/fashionFiles";
-import UserCreate from "./Chirot/UserCreate";
+import Login from "./Chirot/Login";
 import UserUpdate from "./Chirot/UserUpdate";
+import UserCreate from "./Chirot/UserCreate";
 import UsersProducts from "./Chirot/UsersProducts";
 import ProductsCreate from "./Chirot/ProductsCreate";
 import ProductsUpdate from "./Chirot/ProductsUpdate";
@@ -53,8 +54,11 @@ function App() {
       <Router>
         <Header CartItem={CartItem} />
         <Switch>
-        <Route path='/test' exact>
+        <Route path='/Allpro' exact>
             <AllProduct/>
+          </Route>
+          <Route path='/login' >
+            <Login/>
           </Route>
           <Route path='/' exact>
             <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />

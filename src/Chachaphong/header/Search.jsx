@@ -28,7 +28,7 @@ const Search = ({ CartItem }) => {
           <div className='icon f_flex width'>
           <a href='/register'>สมัครสมาชิก</a>
           <FiUser />
-          <a href='/login!'> เข้าสู่ระบบ</a>
+          <a href='/login'> เข้าสู่ระบบ</a>
             <div className='cart'>
               <Link to='/cart'>
               <a href='#'><FiShoppingCart /></a>

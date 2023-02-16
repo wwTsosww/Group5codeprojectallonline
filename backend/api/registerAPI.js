@@ -57,8 +57,28 @@ const register = async (req, res) => {
     console.log(err);
   }
 }
+//อาร์ม
+const login =  async (req, res) => {
+  const name = req.body.username;
+  const password = req.body.password;
+  // console.log(name);
+  try {
+    const conn = await connection;
+    const user = await conn.query("SELECT * FROM users WHERE username = ?", [name]);
+    // console.log(user[0]);
+    if(user[0].length > 0) {
+      await bcrypt.compare(password, user[0][0].password);
+      res.status(200).send("OK")
+    } else {
+      res.status(401).send("ไม่พบชื่อผู้ใช้");
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 module.exports = {
-  register
+  register,
+  login
 }
