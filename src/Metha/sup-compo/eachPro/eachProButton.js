@@ -43,7 +43,7 @@ export const Product = ({
       </div>
       <div className="">
         <e></e>
-        <button type="button" class="btn btn-warning ">
+        <button type="button" class="btn btn-danger ">
           <a href="/cart" className="text-white">
             ใส่ตะกร้า
           </a>

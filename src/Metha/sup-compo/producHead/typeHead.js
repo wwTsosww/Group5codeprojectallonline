@@ -8,8 +8,8 @@ const Product = ({ product }) => {
         <div className="card-body">
           <h4 className="card-title">{product.product_name}</h4>
           <p className="card-text text-truncate">{product.product_detail}</p>
-          <button className="btn btn-danger" onClick={() => addToCart(product)}>
-        รายละเอียด
+          <button className="btn btn-primary" onClick={() => addToCart(product)}>
+        ซื้อสินค้า
       </button>
         </div>
       </div>
