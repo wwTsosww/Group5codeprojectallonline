@@ -1,5 +1,6 @@
 import React, {  } from "react";
 import addToCshop from "../../function/addToshop";
+import eachprofrom from "./eachProForm";
 
 export const Product = ({
   product,
@@ -33,15 +34,16 @@ export const Product = ({
 
 
   return (
-    <div className="d-grid gap-3 card-text">
-      <div className="badge rounded text-bg-success p-2  ">
+    <div className=" gap-3 card-text">
+      <div className="">
         <h1 className="price col">{product.product_price}</h1>
       </div>
-      <div className="badge bg-danger rounded p-2 ">
+      <div className="">
         <h1 className="promotion col price">{product.product_promotion}</h1>
       </div>
-      <div className="price-promotion-container">
-        <button type="button" class="btn btn-success ">
+      <div className="">
+        <e></e>
+        <button type="button" class="btn btn-warning ">
           <a href="/cart" className="text-white">
             ใส่ตะกร้า
           </a>
@@ -59,7 +61,7 @@ export const Product = ({
               <img src={value.cateImg} alt="" style={{ margin: "10px" }} />
                   <span>{value.cateName}</span>
                 <div className="col">
-              <div className="price-promotion-container" key={index}>
+              <div className="" key={index}>
                 </div>
               </div>
             </>

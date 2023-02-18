@@ -8,7 +8,7 @@ import '../Metha/CSS/index.css'
 export default function ProductsUpdate(ID) {
   const params = useParams();
   const [picture, setavatar] = useState("");
-  const [pay, setPay] = useState("");
+  // const [pay, setPay] = useState("");
   const [Pname, setPname] = useState("");
   const [stock, setstock] = useState("");
   const [price, setprice] = useState("");
@@ -43,7 +43,7 @@ export default function ProductsUpdate(ID) {
       price: price,
       detail: detail,
       priceType: priceType,
-      cuation: cuation,
+      caution: cuation,
       warring: warring,
       type: type,
       promotion: promotion,
@@ -65,7 +65,7 @@ export default function ProductsUpdate(ID) {
       .catch((error) => console.log("error", error));
   };
 
-// console.log(product)
+console.log(Pname,stock,price,detail,priceType,cuation,warring,type,promotion)
   return (
     <React.Fragment>
       <CssBaseline />
@@ -75,6 +75,7 @@ export default function ProductsUpdate(ID) {
         </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={2}>
+              
               <Grid item xs={12}>
                 <TextField
                   id="picture"
@@ -107,12 +108,12 @@ export default function ProductsUpdate(ID) {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  id="type"
-                  label={"Caution : "+product.product_caution}
+                  id="Service"
+                  label={"Type : "+product.product_type}
                   variant="outlined"
                   fullWidth
                   required
-                  onChange={(e) => settype(e.target.value)}
+                  onChange={(e) => setPriceType(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -127,8 +128,19 @@ export default function ProductsUpdate(ID) {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  id="detail"
-                  label={"Type : "+product.product_type}
+                  id="caution"
+                  label={"Caution : "+product.product_caution}
+                  variant="outlined"
+                  fullWidth
+                  required
+                  onChange={(e) => settype(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  id="Detail"
+                  label= {"detail : "+product.product_detail}
+                  // product.product_detail
                   variant="outlined"
                   fullWidth
                   required
@@ -138,17 +150,7 @@ export default function ProductsUpdate(ID) {
               <Grid item xs={12}>
                 <TextField
                   id="priceType"
-                  label={"Detail : "+product.product_detail}
-                  variant="outlined"
-                  fullWidth
-                  required
-                  onChange={(e) => setPriceType(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  id="cuation"
-                  label= {"Pay : "+product.product_pay}
+                  label={"PriceType : "+product.product_pay}
                   variant="outlined"
                   fullWidth
                   required
@@ -172,7 +174,7 @@ export default function ProductsUpdate(ID) {
                   variant="outlined"
                   fullWidth
                   required
-                  onChange={(e) => setWarring(e.target.value)}
+                  onChange={(e) => setPromotion(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>

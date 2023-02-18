@@ -31,13 +31,13 @@ const Products = (productType) => {
         <hr />
         <div className="rows">
             <>
-              <h1 className="text-center rounded text-bg-success">
+              <h1 className="text-center rounded ">
                 {product.product_name}
               </h1>
-              <div className="row new-box">
+              <div className="row ">
                 <div className="col"><Product product={product} key={product.id} /></div>
-                <div className="col"><Form product={product} key={product.id} /></div>
                 <div className="col"><Button product={product} key={product.id} /></div>
+                <div className="col"><Form product={product} key={product.id} /></div>
               </div>
             </>
         </div>
