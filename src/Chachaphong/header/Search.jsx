@@ -1,10 +1,16 @@
-import React from "react"
+import React, {useState} from "react"
 import { FiUser , FiShoppingCart } from "react-icons/fi";
-import { BsShop } from "react-icons/bs";
 import { ImSearch } from "react-icons/im";
 import { Link } from "react-router-dom"
+import Example from "../../Metha/cart";
 
-const Search = ({ CartItem }) => {
+const Search = ({ onSearch,CartItem }) => {
+  const [query, setQuery] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSearch(query);
+  };
   // fixed Header
   window.addEventListener("scroll", function () {
     const search = document.querySelector(".search")
@@ -16,13 +22,17 @@ const Search = ({ CartItem }) => {
       <section className='search'>
         <div className='container c_flex'>
           <div className='logo width '>
-           <a href="/">AllOnline <BsShop /></a>
+          <a href="/"> <img src = "https://www.allonline.7eleven.co.th/1523c9f77853e87958adda06f7de38de9f8caf21/assets/7online/images/logo.png" /> </a>
           </div>
           <div className='search-box f_flex'> 
             <i className='fa fa-search'></i>
-            <input type='text' placeholder='ค้นหาสินค้า' />
-            <span><a href=""> <ImSearch /></a>
-            </span>
+            <form onSubmit={handleSubmit}></form>
+             <input type="text" value={query}onChange={(event) => setQuery(event.target.value)}placeholder="ค้นหาสินค้า"/>
+             
+          <span>
+          <button type="submit"><ImSearch /></button>
+       </span>
+       
           </div>
 
           <div className='icon f_flex width'>
@@ -30,8 +40,8 @@ const Search = ({ CartItem }) => {
           <FiUser />
           <a href='/login'> เข้าสู่ระบบ</a>
             <div className='cart'>
-              <Link to='/cart'>
-              <a href='#'><FiShoppingCart /></a>
+              <Link to="">
+              <Example CartItem={CartItem}/>
               </Link>
             </div>
           </div>

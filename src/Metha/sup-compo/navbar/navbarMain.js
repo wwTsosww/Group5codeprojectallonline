@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-success navbar-dark navbar d-flex">
+    <nav className="bg-success navbar-dark navbar">
       <div className="row col-12 justify-content-center text-center text-white">
         <li>
           <Link to="/login!" className="text-white">

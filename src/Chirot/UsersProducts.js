@@ -15,9 +15,9 @@ import TableRow from "@mui/material/TableRow";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import Navbar from "../Metha/sup-compo/navbar/navbarMain";
 import { Link } from "react-router-dom";
-import NavigationIcon from "@mui/icons-material/Navigation";
+
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -71,6 +71,9 @@ export default function SimpleContainer() {
   };
 
   return (
+    <>
+   <Navbar/>
+    <button primary onClick={() => window.location.href="/" }>backhomepage</button>
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="" sx={{ p: -5 }}>
@@ -155,5 +158,6 @@ export default function SimpleContainer() {
         </Paper>
       </Container>
     </React.Fragment>
+    </>
   );
 }

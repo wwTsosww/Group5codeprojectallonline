@@ -6,6 +6,7 @@ import Product from "./sup-compo/producHead/typeHead";
 // import FashionHead from "./sup-compo/navbar/navbarTest";
 import TablePro from "./sup-compo/fashion/tablePro";
 import Footer from "./sup-compo/navbar/Footer";
+import Header from ".././Chachaphong/header/Header"
 import "./CSS/App.css";
 function Fashion( productType ) {
   console.log(productType.productType);
@@ -63,6 +64,7 @@ function Fashion( productType ) {
 
   return (
     <div>
+       <Header CartItem={products}/>
       <Navbar />
       <div className="container">
         <h2>{productType.productType} Products</h2>

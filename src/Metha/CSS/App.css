@@ -66,7 +66,12 @@
     text-align: center;
     width: 450px;
   }
-  
+  .image-box-F{
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    width: 100px;
+  }
   .image-box-O{
     border: 1px solid #ccc;
     padding: 10px;
@@ -129,3 +134,7 @@
   font-style: italic;
 }
 
+.owl-stage-outer {
+  margin: -5px;
+  padding: 5px;
+}

@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import Navbar from "./sup-compo/navbar/navbarMain";
 import Navbar2 from "./sup-compo/navbar/navbarTest";
 import "./CSS/App.css";
+import Header from "../Chachaphong/header/Header.jsx"
+
 
 const Products = (productType) => {
   const params = useParams();
@@ -22,6 +24,7 @@ const Products = (productType) => {
   }, [productType]);
   return (
     <>
+     <Header CartItem={products}/>
       <Navbar />
           {products.map((product, index) => (
       <>
@@ -34,6 +37,9 @@ const Products = (productType) => {
               <h1 className="text-center rounded ">
                 {product.product_name}
               </h1>
+              <p className="badge rounded text-bg-danger rounded " onClick={()=>window.location.href=`/mainType/${product.product_type}`}>
+                {product.product_type}
+              </p>
               <div className="row ">
                 <div className="col"><Product product={product} key={product.id} /></div>
                 <div className="col"><Button product={product} key={product.id} /></div>

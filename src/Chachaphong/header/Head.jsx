@@ -4,15 +4,7 @@ const Head = () => {
   return (
     <>
       <section className='head'>
-        <div className='container d_flex'>
-          <div className='left row'>
-            <i className='fa fa-phone'></i>
-            <label> โทรติดต่อสอบถาม 1371</label>
-          </div>
-          <div className='right row RText'>
-            
-          </div>
-        </div>
+            <img src = "https://www.allonline.7eleven.co.th/media/i/strip-Code-payday-(24-Feb---2-Mar-23)-196581-0.jpg" />
       </section>
     </>
   )

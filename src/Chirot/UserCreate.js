@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
 import { Grid, TextField, Button, Typography } from '@mui/material/';
+import Navbar from '../Metha/sup-compo/navbar/navbarMain';
 //////Chirot 
 export default function UserCreate() {
     const handleSubmit = event => {
@@ -43,6 +44,8 @@ export default function UserCreate() {
     const [email, setEmail] = useState('');
 
     return (
+        <>
+        {/* <Navbar/> */}
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="sm">
@@ -82,6 +85,7 @@ export default function UserCreate() {
                 </form>
             </Container>
         </React.Fragment>
+        </>
     );
 }
 

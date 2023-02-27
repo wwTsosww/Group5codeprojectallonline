@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import "./App.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import Head from "./Chachaphong/header/Head"
 import Header from "./Chachaphong/header/Header"
 import LoginAdmin from "./Metha/loginAdmin";
 import Pages from "./Chachaphong/pages/Pages"
@@ -20,7 +21,7 @@ import Users from './Chirot/Users';
 import AllProduct from "./Jitima/AllProduct"
 import Payment from "./Metha/payment"
 import ProductType from "./Metha/eachPro";
-// import Apps from "./Apps"
+
 
 //////Metha
 function App() {
@@ -51,8 +52,9 @@ function App() {
 
   return (
     <>
+    <Head />
       <Router>
-        <Header CartItem={CartItem} />
+        {/* <Header CartItem={CartItem} /> */}
         <Switch>
         <Route path='/Allpro' exact>
             <AllProduct/>

@@ -17,6 +17,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import Navbar from '../Metha/sup-compo/navbar/navbarMain';
 
 
 
@@ -67,6 +68,9 @@ export default function SimpleContainer() {
     }
 
     return (
+        <>
+        <Navbar/>
+    <button primary onClick={() => window.location.href="/" }>backhomepage</button>
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="" sx={{ p: -5 }}>
@@ -135,5 +139,6 @@ export default function SimpleContainer() {
                 </Paper>
             </Container>
         </React.Fragment>
+        </>
     );
 }

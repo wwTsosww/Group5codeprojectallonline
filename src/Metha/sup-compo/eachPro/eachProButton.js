@@ -1,14 +1,22 @@
-import React, {  } from "react";
+import React, { useEffect,useState } from "react";
 import addToCshop from "../../function/addToshop";
 import eachprofrom from "./eachProForm";
+import { handleAddToCart } from "../handleCart/handleCart";
+import Example from "../handleCart/handleCart";
 
 export const Product = ({
   product,
   index,
-  CartItem,
   addToCart,
   decreaseQty,
 }) => {
+
+  useEffect(() => {
+    setCartItems([product]);
+  }, [product]);
+
+  const [cartItems, setCartItems] = useState([]);
+
 
   let productPay;
   try {
@@ -26,7 +34,7 @@ export const Product = ({
     },
     {
       cateImg:
-        "https://www.allonline.7eleven.co.th//media/i/logo7-11-63537-1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/4/40/7-eleven_logo.svg",
       cateName: "7-ELEVEN",
     },
   ];
@@ -42,12 +50,7 @@ export const Product = ({
         <h1 className="promotion col price">{product.product_promotion}</h1>
       </div>
       <div className="">
-        <e></e>
-        <button type="button" class="btn btn-danger ">
-          <a href="/cart" className="text-white">
-            ใส่ตะกร้า
-          </a>
-        </button>
+          <Example CartItem={cartItems}/>
         <button type="button" class="btn btn-success " onClick={addToCshop}>
           ซื้อ
         </button>
@@ -57,14 +60,14 @@ export const Product = ({
         <p>การจัดส่ง</p>
         {data.map((value) => {
           return (
-            <>
-              <img src={value.cateImg} alt="" style={{ margin: "10px" }} />
+            <div className="owl-stage-outer">
+              <img src={value.cateImg} alt="" style={{ margin: "10px" }} className="image-box-F" />
                   <span>{value.cateName}</span>
                 <div className="col">
               <div className="" key={index}>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
       </div>
