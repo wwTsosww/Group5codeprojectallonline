@@ -11,7 +11,7 @@ function Example({ CartItem }) {
     setCartItems(CartItem);
   }, [CartItem]);
 
-  const { cartItems, addToCart } = useContext(CartContext);
+  const { cartItems, addToCart,removeFromCart } = useContext(CartContext);
 
   const [showCart, setShowCart] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
@@ -26,14 +26,25 @@ function Example({ CartItem }) {
     newItems.splice(index, 1);
     setCartItems(newItems);
     localStorage.setItem('cartItems', JSON.stringify(newItems));
+    let cost = 0;
+    newItems.forEach((item) => {
+      cost += item.product_price * item.quantity;
+    });
+    setTotalCost(cost);
   };
+  
 
   const handleQuantityChange = (index, quantity) => {
     const newItems = [...cartItems];
     newItems[index] = { ...newItems[index], quantity };
     setCartItems(newItems);
+    let cost = 0;
+    newItems.forEach((item) => {
+      cost += item.product_price * item.quantity;
+    });
+    setTotalCost(cost);
   };
-
+  
   useEffect(() => {
     let cost = 0;
     cartItems.forEach((item) => {
@@ -72,7 +83,7 @@ function Example({ CartItem }) {
                       </div>
                     </div>
                     <div className="text-end">
-                      <Button variant="danger" size="sm" onClick={() => handleRemoveItem(index)}>
+                    <Button variant="danger" size="sm" onClick={() => removeFromCart(index)}>
                         <FaTrash />
                       </Button>
                     </div>
