@@ -8,7 +8,10 @@ app.use(express.urlencoded());
 const GetpFont = async (req, res) => {
   try {
     const conn = await connection;
-    const results = await conn.query(`SELECT * FROM db_project.product where product_type = ?`,[req.params.productType]);
+    const results = await conn.query(
+      `SELECT * FROM db_project.product where product_type = ?`,
+      [req.params.productType]
+    );
     res.send(results[0]);
   } catch (err) {
     res.status(500).send(err);
@@ -29,25 +32,41 @@ const Getproducts = async (req, res) => {
 };
 
 //ท็อป
-  const GetproductsByid = async (req,res) =>{
-    try {
-      const conn = await connection;
-      const results = await conn.query("SELECT * FROM product WHERE id = ?", [
-        req.params.id,
-      ]);
-      if (results.length > 0) {
-        res.send(results[0]);
-      } else {
-        res.status(404).send({ message: "Product not found" });
-      }
-    } catch (err) {
-      res.status(500).send({ message: err.message });
-      console.log(err);
+const GetproductsByid = async (req, res) => {
+  try {
+    const conn = await connection;
+    const results = await conn.query("SELECT * FROM product WHERE id = ?", [
+      req.params.id,
+    ]);
+    if (results.length > 0) {
+      res.send(results[0]);
+    } else {
+      res.status(404).send({ message: "Product not found" });
     }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+    console.log(err);
   }
+};
 
-  module.exports = {
-    GetpFont,
-    GetproductsByid,
-    Getproducts
+const searchProducts = async (req, res) => {
+  try {
+    const pname = req.query.query;
+    const conn = await connection;
+    const results = await 
+      conn.query(
+        `SELECT * FROM product WHERE product_name LIKE "%${pname}%"`,
+        [`%${pname}%`]);
+  res.send(results);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+module.exports = {
+  GetpFont,
+  GetproductsByid,
+  Getproducts,
+  searchProducts,
 };

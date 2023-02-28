@@ -5,7 +5,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { FaTrash } from 'react-icons/fa';
 import { CartContext } from './sup-compo/handleCart/sup-compo/dataContext';
-
+//ท็อป
 function Example({ CartItem }) {
   useEffect(() => {
     setCartItems(CartItem);
@@ -21,18 +21,6 @@ function Example({ CartItem }) {
   const handleClose = () => setShowCart(false);
   const handleShow = () => setShowCart(true);
 
-  const handleRemoveItem = (index) => {
-    const newItems = [...cartItems];
-    newItems.splice(index, 1);
-    setCartItems(newItems);
-    localStorage.setItem('cartItems', JSON.stringify(newItems));
-    let cost = 0;
-    newItems.forEach((item) => {
-      cost += item.product_price * item.quantity;
-    });
-    setTotalCost(cost);
-  };
-  
 
   const handleQuantityChange = (index, quantity) => {
     const newItems = [...cartItems];

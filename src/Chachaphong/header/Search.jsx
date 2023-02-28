@@ -1,17 +1,21 @@
 import React, {useState} from "react"
+import { useContext } from "react";
 import { FiUser , FiShoppingCart } from "react-icons/fi";
 import { ImSearch } from "react-icons/im";
 import { Link } from "react-router-dom"
 import Example from "../../Metha/cart";
-
+import { SearchData } from "../MainPage/sup-compo/searchData"
+//ท็อป & เป๊ก
 const Search = ({ onSearch,CartItem }) => {
   const [query, setQuery] = useState("");
+  const { results, handleSearch } = useContext(SearchData);
 
+ console.log(query)
+ console.log(results)
   const handleSubmit = (event) => {
-    event.preventDefault();
     onSearch(query);
   };
-  // fixed Header
+  
   window.addEventListener("scroll", function () {
     const search = document.querySelector(".search")
     search.classList.toggle("active", window.scrollY > 100)
@@ -30,7 +34,7 @@ const Search = ({ onSearch,CartItem }) => {
              <input type="text" value={query}onChange={(event) => setQuery(event.target.value)}placeholder="ค้นหาสินค้า"/>
              
           <span>
-          <button type="submit"><ImSearch /></button>
+          <button type="submit" onClick={(e)=>handleSubmit(e)}><ImSearch /></button>
        </span>
        
           </div>

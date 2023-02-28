@@ -12,10 +12,13 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Navbar from "../Metha/sup-compo/navbar/navbarMain";
+import Header from "../Chachaphong/header/Header";
 
 
-
-
+// import GoogleLogin component from GoogleLogin.js
+import GoogleLogin from "./GoogleLogin";
+import FacebookLogin from './FacebookLogin'
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -45,7 +48,7 @@ const Login = () => {
             data: data,
         };
         axios(config)
-            .then(function (response) { 
+            .then(function (response) {
                 Swal.fire({
                     icon: "success",
                     title: "login success",
@@ -66,6 +69,9 @@ const Login = () => {
     };
 
     return (
+        <>
+        <Header/>
+        {/* <Navbar/> */}
         <Container className="mt-5">
             <Row>
                 <Col md={{ span: 6, offset: 3 }}>
@@ -79,7 +85,7 @@ const Login = () => {
                         }}
                     >
                         <h2 className="text-center mb-4">Login</h2>
-                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 0}}>
+                        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 0 }}>
                             <TextField
                                 margin="normal"
                                 required
@@ -122,6 +128,8 @@ const Login = () => {
                                     <Link href="#" variant="body2">
                                         Register
                                     </Link>
+                                    {/* add GoogleLogin component */}
+                                    <GoogleLogin /> & <FacebookLogin />
                                 </Grid>
                                 <Grid item>
                                 </Grid>
@@ -131,6 +139,7 @@ const Login = () => {
                 </Col>
             </Row>
         </Container>
+        </>
     );
 };
 

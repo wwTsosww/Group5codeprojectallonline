@@ -21,34 +21,12 @@ import Users from './Chirot/Users';
 import AllProduct from "./Jitima/AllProduct"
 import Payment from "./Metha/payment"
 import ProductType from "./Metha/eachPro";
+import SearchResults from "./Chachaphong/MainPage/searchResult"
 
 
 //////Metha
 function App() {
 
-  const { productItems } = Data
-  const { shopItems } = Sdata
-
-  const [CartItem, setCartItem] = useState([])
-
-  const addToCart = (product) => {
-    const productExit = CartItem.find((item) => item.id === product.id)
-    if (productExit) {
-      setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty + 1 } : item)))
-    } else {
-      setCartItem([...CartItem, { ...product, qty: 1 }])
-    }
-  }
-
-  const decreaseQty = (product) => {
-
-    const productExit = CartItem.find((item) => item.id === product.id)
-    if (productExit.qty === 1) {
-      setCartItem(CartItem.filter((item) => item.id !== product.id))
-    } else {
-      setCartItem(CartItem.map((item) => (item.id === product.id ? { ...productExit, qty: productExit.qty - 1 } : item)))
-    }
-  }
 
   return (
     <>
@@ -63,7 +41,7 @@ function App() {
             <Login/>
           </Route>
           <Route path='/' exact>
-            <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItems} />
+            <Pages />
           </Route>
           <Route path='/register' >
             <Register productType="mom_and_kids"/>
@@ -71,6 +49,9 @@ function App() {
           <Route path='/admin'>
             <Users/>
           </Route>
+          <Route path="/results" >
+              <SearchResults/>
+            </Route>
           <Route path="/mainType/IT_and_computer" >
             <MainTypeproduct productType="IT_and_computer"/>
           </Route>
@@ -123,10 +104,10 @@ function App() {
               <UserCreate/>
             </Route>
             <Route path="/produc/:id" >
-              <ProductType CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
+              <ProductType />
             </Route>
           <Route path='/cart' exact>
-            <Cart CartItem={CartItem} addToCart={addToCart} decreaseQty={decreaseQty} />
+            <Cart  />
           </Route>
           <Route path="/payments" >
             <Payment/>

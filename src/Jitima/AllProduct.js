@@ -1,6 +1,9 @@
 import { Card, Col, Row, Button, Table } from "antd";
 import { useState, useEffect } from "react";
 import addToCart from "../Metha/function/addFunc";
+import Header from "../Chachaphong/header/Header";
+import Navbar from "../Metha/sup-compo/navbar/navbarMain";
+
 
 function App() {
   const { Meta } = Card;
@@ -35,6 +38,8 @@ function App() {
 
   return (
     <div class="justify-content-center text-center">
+       <Header />
+        <Navbar />
       <Row>
         {product.slice(7, 250).map((products) => (
           <Col key={products.id}>

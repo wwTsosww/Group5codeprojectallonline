@@ -2,6 +2,7 @@ import React, { useState, SetState } from "react";
 import axios from "axios";
 import swal from "sweetalert"
 import { redirect } from "react-router-dom";
+import Header from "../Chachaphong/header/Header";
 import Navbar from "./sup-compo/navbar/navbarRegis";
 
 function Register(productType) {
@@ -115,6 +116,7 @@ function Register(productType) {
 
   return (
     <div className="">
+      <Header/>
       <Navbar/>
       <div className=" text-center">
         <div className="d-grid gap-3 d-flex justify-content-center text-center">
