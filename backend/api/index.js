@@ -5,8 +5,8 @@ var app = express();
 const mysql = require('mysql2/promise');
 const connection = mysql.createConnection({
     host: 'aws.connect.psdb.cloud',
-    user: 'qshnlynq3fbho3p295vz',
-    password: 'pscale_pw_s0zl1GPpoLOw3BrJvR9Ck62I7Ym47aDQdNBdEJaH2wm',
+    user: '3lg03quislqu90w0r43e',
+    password: 'pscale_pw_VY3MeZGYCqPzpAXidU6Irw2Re6LQDfaEfwsebfkmWkY',
     database: 'allonline_s',
     port: 3306,
     ssl: {
@@ -182,6 +182,6 @@ app.get('/UserPaylater', async (req, res) => {
     res.json(result = users[0]);
 });
 
-app.listen(3000, function () {
-    console.log("Server is running at port 3000")
+app.listen(3400, function () {
+    console.log("Server is running at port 3400")
 });
